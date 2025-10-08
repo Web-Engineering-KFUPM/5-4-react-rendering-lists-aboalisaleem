@@ -10,6 +10,8 @@ export default function CourseCard({ course, index, onMutateCourse }) {
   // 📘 TASK 4 — PART A (Anchor): Implement toggle using onMutateCourse + .map()
   function toggleTask(id) {
     // TODO: toggle the task with this id
+    const task = course.tasks.find((task) => task.id === id);
+    if (!task) return;
 
     onMutateCourse(index, {
       ...course,
@@ -66,7 +68,7 @@ export default function CourseCard({ course, index, onMutateCourse }) {
       {/* 🟩 PART A (Anchor): If NO tasks → show message; ELSE → render the list (ternary ?: ) */ }
       <section className="tasksSection">
         {/* 📘 TASK 2 — Render Tasks for Each Course */ }
-        {/* 🔎 Anchor: You’ll write your code right inside this list. */}
+        {/* 🔎 Anchor: You’ll write your code right inside this list. */ }
         <ul className="tasks">
           {course.tasks.length === 0 ? (
             <li>No tasks yet!</li>
@@ -84,7 +86,7 @@ export default function CourseCard({ course, index, onMutateCourse }) {
       </section>
 
 
-      {/* Add Form (provided) */}
+      {/* Add Form (provided) */  }
       <form onSubmit={addTask} className="newTask">
         <input
           className="titleField"
